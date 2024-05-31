@@ -2,10 +2,13 @@ from launch_ros.actions import Node
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
 from launch.substitutions import TextSubstitution
 
 
 def generate_launch_description():
+
+    base_ns = LaunchConfiguration("base_ns")
 
     # args that can be set from the command line or a default will be used
     base_ns_launch_arg = DeclareLaunchArgument(
@@ -17,7 +20,7 @@ def generate_launch_description():
     # start a in a namespace
     base_node = Node(
         package="linux_thermal_zone_base",
-        namespace="base_ns",
+        namespace=base_ns,
         executable="linux_thermal_zone_base",
         name="ltz_base",
     )
