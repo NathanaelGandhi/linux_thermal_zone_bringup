@@ -1,0 +1,6 @@
+---
+/**/ltz_base: # wild card all ns for the ltz_base
+    ros__parameters:
+        data_acquisition_rate_hz: 2.0
+        data_pub_rate_hz: 2.0
+        hk_pub_rate_hz: 0.2
